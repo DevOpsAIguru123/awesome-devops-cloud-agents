@@ -9,6 +9,10 @@ documented here. The format is based on
 
 ### Added
 
+- **Tool permission and consent boundary guidance.** Added schema-reference
+  guidance and regression coverage for reviewing default tool permissions,
+  destructive-tool separation, per-tool allowlists, scoped runner identities,
+  revocable scopes, enforced approval gates, and most-privileged-tool scoring.
 - **Evaluation environment boundary guidance.** Added schema-reference guidance
   and regression coverage for using sandbox projects, test tenants, fixture
   repositories, read-only workspaces, narrow OAuth scopes, limited egress, and

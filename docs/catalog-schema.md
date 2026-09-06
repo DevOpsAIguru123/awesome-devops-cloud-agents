@@ -274,6 +274,26 @@ For hosted endpoints that expose both read-only and write-capable tool groups,
 score the row by the most privileged documented capability unless the catalog row
 explicitly points to a separate read-only endpoint or mode.
 
+### Tool permission and consent boundary guidance
+
+Agent and MCP catalog rows should reflect the permissions an operator must grant
+before the artifact can act, not just the friendly demo path. During review,
+inspect the documented tool list, manifest, CLI flags, or host configuration and
+record how consent is enforced:
+
+- Identify the default permission posture: disabled until explicitly enabled,
+  read-only by default, allowlisted per tool, or broadly enabled once connected.
+- Check whether destructive tools such as deploy, delete, merge, rotate, trigger,
+  remediate, or shell execution can be separated from lookup and planning tools.
+- Prefer entries that support per-tool allowlists, scoped runner identities,
+  workspace or namespace boundaries, and revocable OAuth scopes or tokens.
+- Treat "user can review output" as weaker than an enforced approval gate; only
+  set `human_approval: true` when the tool or host blocks mutation until explicit
+  operator consent is recorded.
+- Note missing permission separation, broad host access, or undocumented consent
+  behavior in `risk_notes`, and score by the most privileged tool exposed by the
+  configured artifact.
+
 ### Public-safe metadata rules
 
 Catalog metadata, README rows, screenshots, generated reports, and pull request

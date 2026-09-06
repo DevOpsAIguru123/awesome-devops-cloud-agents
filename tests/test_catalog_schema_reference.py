@@ -163,6 +163,20 @@ def test_catalog_schema_reference_includes_hosted_mcp_credential_boundary_guidan
     assert "most privileged documented capability" in text
 
 
+def test_catalog_schema_reference_includes_tool_permission_and_consent_boundary_guidance():
+    text = _schema_text()
+
+    assert "### Tool permission and consent boundary guidance" in text
+    assert "documented tool list" in text
+    assert "default permission posture" in text
+    assert "read-only by default" in text
+    assert "destructive tools such as deploy" in text
+    assert "per-tool allowlists" in text
+    assert "scoped runner identities" in text
+    assert "enforced approval gate" in text
+    assert "most privileged tool exposed" in text
+
+
 def test_catalog_schema_reference_includes_public_safe_metadata_rules():
     text = _schema_text()
 
