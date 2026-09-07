@@ -294,6 +294,26 @@ record how consent is enforced:
   behavior in `risk_notes`, and score by the most privileged tool exposed by the
   configured artifact.
 
+### Telemetry and retention boundary guidance
+
+Agents and MCP servers often observe prompts, tool arguments, command output,
+repository contents, cloud inventory, tickets, traces, and incident notes. Before
+raising maturity or evidence scores, verify where that data can flow:
+
+- Identify whether telemetry, analytics, hosted logs, traces, prompt capture,
+  crash reports, or model-evaluation uploads are enabled by default, opt-in,
+  opt-out, self-hosted, or undocumented.
+- Check documented retention, deletion, export, tenant-isolation, and regional
+  processing controls before treating vendor-hosted evidence as production safe.
+- Prefer projects that let operators disable telemetry, redact sensitive fields,
+  keep logs local, or route audit evidence to operator-controlled storage.
+- Treat command output, infrastructure inventories, stack traces, and ticket text
+  as potentially sensitive even when credentials are redacted.
+- Record unknown retention, broad vendor-side logging, missing redaction controls,
+  or unclear data residency in `risk_notes`; do not use `evidence` labels for
+  telemetry-only signals unless the evidence is durable, reviewable, and safe to
+  share.
+
 ### Public-safe metadata rules
 
 Catalog metadata, README rows, screenshots, generated reports, and pull request

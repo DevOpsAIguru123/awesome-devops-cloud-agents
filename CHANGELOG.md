@@ -9,6 +9,10 @@ documented here. The format is based on
 
 ### Added
 
+- **Telemetry and retention boundary guidance.** Added schema-reference guidance
+  and regression coverage for checking prompt/tool-output telemetry, hosted logs,
+  retention/deletion/export controls, redaction, local logging, data residency,
+  and whether evidence signals are durable and safe to share.
 - **Tool permission and consent boundary guidance.** Added schema-reference
   guidance and regression coverage for reviewing default tool permissions,
   destructive-tool separation, per-tool allowlists, scoped runner identities,

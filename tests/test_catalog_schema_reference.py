@@ -177,6 +177,20 @@ def test_catalog_schema_reference_includes_tool_permission_and_consent_boundary_
     assert "most privileged tool exposed" in text
 
 
+def test_catalog_schema_reference_includes_telemetry_and_retention_boundary_guidance():
+    text = _schema_text()
+
+    assert "### Telemetry and retention boundary guidance" in text
+    assert "prompts, tool arguments, command output" in text
+    assert "telemetry, analytics, hosted logs" in text
+    assert "enabled by default, opt-in" in text
+    assert "retention, deletion, export" in text
+    assert "disable telemetry" in text
+    assert "operator-controlled storage" in text
+    assert "unknown retention" in text
+    assert "telemetry-only signals" in text
+
+
 def test_catalog_schema_reference_includes_public_safe_metadata_rules():
     text = _schema_text()
 
